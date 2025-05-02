@@ -1,36 +1,34 @@
-# Projeto BigData E-Fecaf
+####Projeto BigData E-Fecaf
+Este projeto envolve a criação de uma aplicação em Streamlit que realiza o upload de um arquivo CSV com dados de temperatura, os armazena em um banco de dados PostgreSQL e visualiza esses dados em gráficos interativos.
 
-Este projeto envolve a criação de uma aplicação em **Streamlit** que realiza o upload de um arquivo CSV com dados de temperatura e os armazena em um banco de dados **PostgreSQL**, além de visualizar esses dados em gráficos.
+#Passos para Execução
+###Passo 1: Configuração do Repositório no GitHub
+Criar Repositório no GitHub:
+Acesse o GitHub e crie um novo repositório com o nome nome-sobrenome-bigdatafecaf.
+Inicialize o repositório com um arquivo README.md.
 
-## Passo 1: Configurar o Repositório no GitHub
+Conectar o GitHub ao Replit:
+Acesse o Replit e crie uma conta ou faça login.
+Conecte o Replit ao seu GitHub para facilitar a sincronização do projeto.
 
-### Criar Repositório no GitHub
-1. Acesse o GitHub e crie um novo repositório com o nome `{nome}{sobrenome}bigdatafecaf`.
-2. Inicialize o repositório com um **README.md**.
+###Passo 2: Configuração do Ambiente no Replit
+Baixar e Fazer Upload do Dataset:
+Baixe o dataset do link fornecido.
+Faça upload do dataset para o Replit, garantindo que ele esteja no mesmo diretório do seu código.
 
-### Conectar o GitHub ao Replit
-1. Acesse o [Replit](https://replit.com) e crie uma conta ou faça login.
-2. Conecte o Replit ao seu GitHub para facilitar a sincronização do projeto.
-
-## Passo 2: Configurar o Ambiente no Replit
-
-### Baixar e Fazer Upload do Dataset
-1. Baixe o dataset do link fornecido (substitua *link* pelo URL real).
-2. Faça upload do dataset para o Replit.
-
-### Instalar Dependências
+#Instalar Dependências:
 No shell do Replit, execute o seguinte comando para instalar as dependências necessárias:
 
 poetry add streamlit pandas sqlalchemy psycopg2-binary plotly python-dotenv
+#Criar o Arquivo .env:
+No Replit, crie um arquivo chamado .env e adicione sua string de conexão do PostgreSQL:
 
-Criar o Arquivo .env
-No Replit, crie um arquivo chamado .env e adicione sua string de conexão PostgreSQL:
 DATABASE_URL=postgresql://usuario:senha@localhost:5432/nome_do_banco
 
-## Passo 3: Desenvolver o Script em main.py
-
-Criar o Arquivo main.py
+###Passo 3: Desenvolver o Script em main.py
+Criar o Arquivo main.py:
 No Replit, crie um arquivo chamado main.py e adicione o seguinte código:
+
 import streamlit as st
 import pandas as pd
 from sqlalchemy import create_engine
@@ -74,46 +72,46 @@ if uploaded_file is not None:
     st.title("Visualização dos Dados")
     fig = px.line(data, x='noted_date', y='temp', title='Série Temporal de Temperaturas')
     st.plotly_chart(fig)
+###Passo 4: Executar o Streamlit
+No Replit, execute o comando para iniciar o Streamlit:
 
-## Passo 4: Executar o Streamlit
-#No Replit, execute o comando para iniciar o Streamlit:
 streamlit run main.py
+A interface do Streamlit abrirá em uma nova aba. Faça o upload do arquivo CSV e visualize o gráfico gerado.
 
-A interface do Streamlit deve abrir em uma nova aba. Faça upload do arquivo CSV e visualize o gráfico.
-
-## Passo 5: Fazer Git Push
-
-Adicionar e Comitar Alterações
+###Passo 5: Fazer Git Push
+Adicionar e Comitar Alterações:
 No shell do Replit, execute os seguintes comandos para adicionar e comitar as mudanças:
+
 git add .
 git commit -m "Adicionar código do Streamlit e configuração do banco de dados"
+Fazer Push para o GitHub:
+Execute o comando para empurrar as alterações para o GitHub:
 
-Fazer Push para o GitHub
-Execute o comando para empurrar as alterações para o GitHub:****
 git push origin main
 
-## Passo 6: Deploy no Render.com
-Criar Conta e Novo Serviço no Render
+###Passo 6: Deploy no Render.com
+Criar Conta e Novo Serviço no Render:
 Acesse Render.com e crie uma conta ou faça login.
-
 Crie um novo serviço web e conecte-o ao repositório GitHub do projeto.
 
-Configurar o Serviço
+##Configurar o Serviço:
 Configure o serviço para usar o comando de inicialização do Streamlit:
-streamlit run main.py
 
-## Deploy
-Finalize a configuração e inicie o deploy. O Render.com irá construir e implantar sua aplicação.
 
-## Considerações Finais
-Banco de Dados: Certifique-se de que o banco de dados PostgreSQL está acessível a partir do ambiente onde o Streamlit está sendo executado.
+#Editar
+#streamlit run main.py
+#Deploy:
+#Finalize a configuração e inicie o deploy. O Render.com irá construir e implantar sua aplicação.
 
-Segurança: Nunca exponha credenciais sensíveis diretamente no código. Use variáveis de ambiente para gerenciá-las.
+##Considerações Finais
+Banco de Dados:
+Certifique-se de que o banco de dados PostgreSQL está acessível a partir do ambiente onde o Streamlit está sendo executado.
 
-Debugging: Se encontrar erros, verifique os logs no Replit e no Render.com para diagnósticos.
+##Segurança:
+Nunca exponha credenciais sensíveis diretamente no código. Utilize variáveis de ambiente para gerenciá-las de forma segura.
 
-Este tutorial cobre desde a configuração inicial até o deploy, garantindo que você tenha uma aplicação funcional de BigData em Streamlit.
-
+##Debugging:
+Se encontrar erros, verifique os logs no Replit e no Render.com para diagnósticos.
 
 
 
